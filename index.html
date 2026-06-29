@@ -55,11 +55,16 @@
   .deck-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
   .deck-head h2{font-size:clamp(24px,3.4vw,40px);font-weight:800;letter-spacing:-1px}
   .deck-head .hint{font-size:14px;color:var(--muted)}
-  .frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -40px rgba(0,0,0,.45);background:#0c0c0c}
-  .ratio{position:relative;width:100%;padding-bottom:56.25%}
-  .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .fs-btn{position:absolute;right:14px;bottom:14px;z-index:3;background:rgba(20,20,20,.82);color:#fff;border:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(6px)}
-  .fs-btn:hover{background:#000}
+  .deck-card{position:relative;display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -42px rgba(0,0,0,.5);aspect-ratio:16/9;text-decoration:none;transition:transform .2s ease,box-shadow .25s ease}
+  .deck-card:hover{transform:translateY(-4px);box-shadow:0 44px 90px -40px rgba(27,58,143,.5)}
+  .deck-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+  .deck-card:hover img{transform:scale(1.03)}
+  .deck-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55))}
+  .deck-overlay .play{width:88px;height:88px;border-radius:50%;background:var(--coral);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(249,78,55,.5);transition:transform .2s ease}
+  .deck-overlay .play svg{width:34px;height:34px;color:#fff;margin-left:4px}
+  .deck-card:hover .deck-overlay .play{transform:scale(1.08)}
+  .deck-overlay .cta-title{font-size:clamp(26px,3.4vw,40px);font-weight:800;letter-spacing:-1px;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+  .deck-overlay .cta-sub{font-size:15px;font-weight:500;opacity:.92;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 
   /* strip */
   .strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
@@ -90,30 +95,27 @@
     <div class="tagline"><span class="w1">La&nbsp;alegría</span> <span class="w2">de&nbsp;hacerlo</span> <span class="w4">a&nbsp;mano.</span></div>
     <p class="lead">Un territorio que no solo <em>parece</em> hecho a mano: está construido con las letras reales de personas de México y Colombia. La persona empieza, la IA amplifica, Paper Mate acompaña.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#presentacion">
+      <a class="btn btn-primary" href="https://www.figma.com/slides/rw0kE2yswCWc7NQAUXuDAF/Paper-Mate-LATAM" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg>
         Ver la presentación
       </a>
-      <a class="btn btn-ghost" id="openFigma" href="https://www.figma.com/slides/rw0kE2yswCWc7NQAUXuDAF/Paper-Mate-LATAM" target="_blank" rel="noopener">Abrir en Figma ↗</a>
+      <a class="btn btn-ghost" href="#presentacion">Conocer el pitch</a>
     </div>
   </header>
 
   <section class="wrap deck" id="presentacion">
     <div class="deck-head">
       <h2>La presentación</h2>
-      <div class="hint">Usa las flechas del deck para navegar · botón ⤢ para pantalla completa</div>
+      <div class="hint">Se abre en una pestaña nueva ↗</div>
     </div>
-    <div class="frame">
-      <div class="ratio">
-        <iframe id="deck" allowfullscreen
-          src="https://embed.figma.com/slides/rw0kE2yswCWc7NQAUXuDAF/Paper-Mate-LATAM?embed-host=share"
-          title="Paper Mate LATAM — Pitch ARDE"></iframe>
+    <a class="deck-card" href="https://www.figma.com/slides/rw0kE2yswCWc7NQAUXuDAF/Paper-Mate-LATAM" target="_blank" rel="noopener" aria-label="Abrir la presentación Paper Mate LATAM en una pestaña nueva">
+      <img src="og.jpg" alt="Key visual — La alegría de hacerlo a mano" />
+      <div class="deck-overlay">
+        <span class="play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4" fill="currentColor" stroke="none"/></svg></span>
+        <span class="cta-title">Ver la presentación</span>
+        <span class="cta-sub">Pitch completo · Figma · abre en pestaña nueva</span>
       </div>
-      <button class="fs-btn" id="fs">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M16 21h3a2 2 0 0 0 2-2v-3M8 21H5a2 2 0 0 1-2-2v-3"/></svg>
-        Pantalla completa
-      </button>
-    </div>
+    </a>
 
     <div class="strip">
       <span class="chip">01 · Instalar el territorio</span>
@@ -145,14 +147,5 @@
     </div>
   </footer>
 
-<script>
-  // Fullscreen on the deck frame
-  var fsBtn=document.getElementById('fs'), frame=document.querySelector('.frame');
-  fsBtn.addEventListener('click',function(){
-    var el=frame;
-    if(el.requestFullscreen) el.requestFullscreen();
-    else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-  });
-</script>
 </body>
 </html>
