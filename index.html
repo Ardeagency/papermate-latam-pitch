@@ -258,7 +258,7 @@ footer small{display:block;margin-top:18px;font-size:12px;opacity:.55;letter-spa
     var TOPIC='https://ntfy.sh/arde-cotizaciones-7k2pqz9x';
     var LABEL='Papermate LATAM Pitch', KEY='pmlatam';
     var ua=navigator.userAgent||'';
-    if(navigator.webdriver===true||/bot\b|crawl|spider|slurp|bingbot|yandex|baidu|duckduckbot|headless|phantom|puppeteer|playwright|python-|curl\/|wget|libwww|httpclient|okhttp|go-http|java\/|facebookexternalhit|embedly|telegrambot|whatsapp|discordbot|slackbot|twitterbot|linkedinbot|googlebot|applebot|lighthouse|pingdom|uptimerobot|datadog|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|ccbot|claudebot|amazonbot/i.test(ua))return;
+    if(navigator.webdriver===true||/bot\b|crawl|spider|slurp|bingbot|yandex|baidu|duckduckbot|headless|phantom|puppeteer|playwright|python-|curl\/|wget|libwww|httpclient|okhttp|go-http|java\/|facebookexternalhit|embedly|telegrambot|whatsapp|discordbot|slackbot|twitterbot|linkedinbot|googlebot|applebot|lighthouse|pingdom|uptimerobot|datadog|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|ccbot|claudebot|amazonbot|zgrab|censys|shodan|expanse|netcraft|httpx|nmap|masscan|paloalto|internetmeasurement/i.test(ua)||(function(){var m=ua.match(/Chrome\/(\d+)/);return !!m&&+m[1]<90;})())return;
     function qp(n){try{var m=location.search.match(new RegExp('[?&]'+n+'=([^&]+)'));return m?decodeURIComponent(m[1].replace(/\+/g,' ')):'';}catch(e){return '';}}
     var who=qp('to')||qp('p'); var whoLine=who?('\nDestinatario: '+who):'';
     function post(title,tags,body){ if(ARDE_SELF)return; try{ fetch(TOPIC,{method:'POST',keepalive:true,headers:{'Title':title,'Tags':tags},body:body}); }catch(e){ try{navigator.sendBeacon(TOPIC,body);}catch(e2){} } }
